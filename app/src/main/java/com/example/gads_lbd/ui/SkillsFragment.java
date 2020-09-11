@@ -1,66 +1,97 @@
 package com.example.gads_lbd.ui;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.example.gads_lbd.R;
+import com.example.gads_lbd.adapters.LearnersAdapter;
+import com.example.gads_lbd.adapters.SkillsAdapter;
+import com.example.gads_lbd.asynctask.SkillsAsyncTask;
+import com.example.gads_lbd.models.Learner;
+import com.example.gads_lbd.models.Skill;
+import com.example.gads_lbd.network.ApiUtilLearners;
+import com.example.gads_lbd.network.ApiUtilSkills;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link SkillsFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.net.URL;
+import java.util.ArrayList;
+
 public class SkillsFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private static Context context = null;
+    private static ProgressBar mLoadingProgress;
+    private static RecyclerView rvSkills;
+    private static View v;
+    private static TextView tvError;
 
     public SkillsFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment SkillsFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static SkillsFragment newInstance(String param1, String param2) {
-        SkillsFragment fragment = new SkillsFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        context = getActivity();
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_skills, container, false);
+        v = inflater.inflate(R.layout.fragment_skills, container, false);
+
+        rvSkills = v.findViewById(R.id.rv_skills);
+        mLoadingProgress = (ProgressBar) v.findViewById(R.id.pb_loading);
+
+        try {
+            URL url = ApiUtilSkills.buildUrl();
+            new SkillsAsyncTask().execute(url);
+
+        }
+        catch (Exception e) {
+            Log.d("error", e.getMessage());
+        }
+
+        return v;
+    }
+
+    public static void initializeView(String result) {
+
+        tvError = (TextView) v.findViewById(R.id.tv_error);
+        mLoadingProgress.setVisibility(View.INVISIBLE);
+
+        if (result == null) {
+            rvSkills.setVisibility(View.INVISIBLE);
+            tvError.setVisibility(View.VISIBLE);
+        }
+        else {
+            rvSkills.setVisibility(View.VISIBLE);
+            tvError.setVisibility(View.INVISIBLE);
+        }
+
+        ArrayList<Skill> skill = ApiUtilSkills.getSkillsFromJson(result);
+        String resultString = "";
+
+        LinearLayoutManager skillsLayoutManager =
+                new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
+        rvSkills.setLayoutManager(skillsLayoutManager);
+
+        SkillsAdapter adapter = new SkillsAdapter(skill);
+        rvSkills.setAdapter(adapter);
+    }
+
+    public static void postExecuted() {
     }
 }

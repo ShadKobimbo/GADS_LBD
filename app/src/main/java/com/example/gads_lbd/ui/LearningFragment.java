@@ -1,7 +1,6 @@
 package com.example.gads_lbd.ui;
 
 import android.content.Context;
-import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -19,9 +18,8 @@ import com.example.gads_lbd.R;
 import com.example.gads_lbd.adapters.LearnersAdapter;
 import com.example.gads_lbd.asynctask.LearnerAsyncTask;
 import com.example.gads_lbd.models.Learner;
-import com.example.gads_lbd.network.ApiUtil;
+import com.example.gads_lbd.network.ApiUtilLearners;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 
@@ -52,10 +50,9 @@ public class LearningFragment extends Fragment {
         v =  inflater.inflate(R.layout.fragment_learning, container, false);
         rvLearners = v.findViewById(R.id.rv_learners);
         mLoadingProgress = (ProgressBar) v.findViewById(R.id.pb_loading);
-        mLoadingProgress.setVisibility(v.VISIBLE);
 
         try {
-            URL url = ApiUtil.buildUrl();
+            URL url = ApiUtilLearners.buildUrl();
             new LearnerAsyncTask().execute(url);
 
         }
@@ -80,7 +77,7 @@ public class LearningFragment extends Fragment {
             tvError.setVisibility(View.INVISIBLE);
         }
 
-        ArrayList<Learner> learner = ApiUtil.getBooksFromJson(result);
+        ArrayList<Learner> learner = ApiUtilLearners.getLearnersFromJson(result);
         String resultString = "";
 
         LinearLayoutManager learnersLayoutManager =

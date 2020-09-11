@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.gads_lbd.R;
@@ -25,7 +24,7 @@ public class LearnersAdapter extends RecyclerView.Adapter<LearnersAdapter.Learne
     public LearnersViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         View itemView = LayoutInflater.from(context)
-                .inflate(R.layout.item_learner_card, parent, false);
+                .inflate(R.layout.learner_list_item, parent, false);
         return new LearnersViewHolder(itemView);
     }
 

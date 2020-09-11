@@ -16,9 +16,9 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class ApiUtil {
+public class ApiUtilLearners {
 
-    private ApiUtil(){}
+    private ApiUtilLearners(){}
 
     public static final String BASE_API_URL =
             "https://gadsapi.herokuapp.com/api/hours";
@@ -61,7 +61,7 @@ public class ApiUtil {
         }
     }
 
-    public static ArrayList<Learner> getBooksFromJson(String json) {
+    public static ArrayList<Learner> getLearnersFromJson(String json) {
 
         final String name = "name";
         final String hours = "hours";

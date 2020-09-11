@@ -3,21 +3,20 @@ package com.example.gads_lbd.asynctask;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import com.example.gads_lbd.network.ApiUtilLearners;
+import com.example.gads_lbd.network.ApiUtilSkills;
+import com.example.gads_lbd.ui.SkillsFragment;
 
 import java.io.IOException;
 import java.net.URL;
 
-import com.example.gads_lbd.ui.LearningFragment;
-
-public class LearnerAsyncTask extends AsyncTask<URL, Void, String> {
+public class SkillsAsyncTask extends AsyncTask<URL, Void, String> {
 
     @Override
     protected String doInBackground(URL... urls) {
         URL searchURL = urls[0];
         String result = null;
         try {
-            result = ApiUtilLearners.getJson(searchURL);
+            result = ApiUtilSkills.getJson(searchURL);
         }
         catch (IOException e) {
             Log.e("Error", e.getMessage());
@@ -28,12 +27,12 @@ public class LearnerAsyncTask extends AsyncTask<URL, Void, String> {
     protected void onPostExecute(String result) {
 
         Log.e("JSON DATA: ", String.valueOf(result));
-        LearningFragment.initializeView(result);
+        SkillsFragment.initializeView(result);
     }
 
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-        LearningFragment.postExecuted();
+        SkillsFragment.postExecuted();
     }
 }
