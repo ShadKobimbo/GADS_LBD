@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardBackgroundColor="@android:color/white"
+    app:cardCornerRadius="3dp"
+    app:cardElevation="1dp"
+    app:cardUseCompatPadding="true">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -36,9 +40,10 @@
                 android:id="@+id/tvName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/learners_name"
                 android:padding="5dp"
+                android:text="@string/learners_name"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
+                android:textColor="#6E6666"
                 android:textStyle="bold" />
 
             <LinearLayout
@@ -46,30 +51,35 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/tvHours"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:maxLines="2"
-                android:padding="5dp"
-                android:text="@string/hours_done"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption" />
-            <TextView
-                android:id="@+id/tvConjuction"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:maxLines="2"
-                android:padding="5dp"
-                android:text="@string/learning_hours_conj"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption" />
-            <TextView
-                android:id="@+id/tvCountry"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:maxLines="2"
-                android:padding="5dp"
-                android:text="@string/learners_country"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption" />
+                <TextView
+                    android:id="@+id/tvHours"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLines="2"
+                    android:padding="5dp"
+                    android:text="@string/hours_done"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
+                    android:textColor="#776C6C" />
+
+                <TextView
+                    android:id="@+id/tvConjuction"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLines="2"
+                    android:padding="5dp"
+                    android:text="@string/learning_hours_conj"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
+                    android:textColor="#736767" />
+
+                <TextView
+                    android:id="@+id/tvCountry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLines="2"
+                    android:padding="5dp"
+                    android:text="@string/learners_country"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
+                    android:textColor="#6C6464" />
             </LinearLayout>
 
         </LinearLayout>
