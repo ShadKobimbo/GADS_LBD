@@ -6,4 +6,8 @@
     <string name="skill_iq_leaders">Skill IQ Leaders</string>
     <string name="leaderboard">LEADERBOARD</string>
     <string name="submit">Submit</string>
+    <string name="learners_country">Learners Country</string>
+    <string name="hours_done">Hours Done</string>
+    <string name="learning_hours_conj">learning hours,</string>
+    <string name="learners_name">Learners Name</string>
 </resources>

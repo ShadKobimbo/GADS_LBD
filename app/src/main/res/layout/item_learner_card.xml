@@ -33,22 +33,44 @@
             android:padding="10dp">
 
             <TextView
-                android:id="@+id/categoryName"
+                android:id="@+id/tvName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Item Name"
+                android:text="@string/learners_name"
                 android:padding="5dp"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
                 android:textStyle="bold" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
             <TextView
-                android:id="@+id/brief"
+                android:id="@+id/tvHours"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:maxLines="2"
                 android:padding="5dp"
-                android:text="Item Brief Goes Here"
+                android:text="@string/hours_done"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption" />
+            <TextView
+                android:id="@+id/tvConjuction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="2"
+                android:padding="5dp"
+                android:text="@string/learning_hours_conj"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption" />
+            <TextView
+                android:id="@+id/tvCountry"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="2"
+                android:padding="5dp"
+                android:text="@string/learners_country"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption" />
+            </LinearLayout>
 
         </LinearLayout>
     </LinearLayout>
