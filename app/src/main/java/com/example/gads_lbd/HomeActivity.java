@@ -3,7 +3,9 @@ package com.example.gads_lbd;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.example.gads_lbd.adapters.SectionsPageAdapter;
 import com.example.gads_lbd.ui.LearningFragment;
@@ -35,6 +37,13 @@ public class HomeActivity extends AppCompatActivity {
         adapter.addFragment(new LearningFragment(), "Learning Leaders");
         adapter.addFragment(new SkillsFragment(), "Skill IQ Leaders");
         viewPager.setAdapter(adapter);
+
+    }
+
+    public void submit(View view){
+
+        Intent intent = new Intent(this, SubmissionActivity.class);
+        startActivity(intent);
 
     }
 }

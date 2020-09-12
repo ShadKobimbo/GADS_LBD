@@ -12,4 +12,8 @@
     <string name="learners_name">Learners Name</string>
     <string name="error_loading_data">Error Loading Data</string>
     <string name="skill_iq_score">SKill IQ Score,</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="email_address">Email Address</string>
+    <string name="project_on_github_link">Project On GITHUB (link).</string>
 </resources>

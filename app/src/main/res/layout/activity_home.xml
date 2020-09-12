@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/launch"
     tools:context=".HomeActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#040303"
+        android:background="@null"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -51,6 +52,7 @@
                     android:layout_gravity="center|end"
                     android:layout_weight="40"
                     android:background="#FFFFFF"
+                    android:onClick="submit"
                     android:text="@string/submit"
                     android:textColor="#0B0B0B" />
 
