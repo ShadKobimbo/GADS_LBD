@@ -4,8 +4,13 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardBackgroundColor="@android:color/white"
-    app:cardCornerRadius="3dp"
-    app:cardElevation="1dp"
+    android:orientation="vertical"
+    android:layout_marginBottom="@dimen/spacing_medium"
+    android:layout_marginLeft="@dimen/spacing_medium"
+    android:layout_marginRight="@dimen/spacing_medium"
+    android:layout_marginTop="@dimen/spacing_medium"
+    app:cardCornerRadius="@dimen/card_radius"
+    app:cardElevation="@dimen/card_elevation"
     app:cardUseCompatPadding="true">
 
     <LinearLayout
@@ -23,7 +28,6 @@
                 android:id="@+id/image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="centerCrop"
                 android:padding="10dp"
                 android:src="@drawable/top_learner" />
 
@@ -56,7 +60,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:maxLines="2"
-                    android:padding="5dp"
+                    android:padding="2dp"
                     android:text="@string/hours_done"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
                     android:textColor="#776C6C" />
@@ -66,7 +70,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:maxLines="2"
-                    android:padding="5dp"
+                    android:padding="2dp"
                     android:text="@string/learning_hours_conj"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
                     android:textColor="#736767" />
@@ -76,7 +80,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:maxLines="2"
-                    android:padding="5dp"
+                    android:padding="2dp"
                     android:text="@string/learners_country"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
                     android:textColor="#6C6464" />
