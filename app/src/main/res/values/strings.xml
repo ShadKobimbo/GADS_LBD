@@ -16,4 +16,8 @@
     <string name="last_name">Last Name</string>
     <string name="email_address">Email Address</string>
     <string name="project_on_github_link">Project On GITHUB (link).</string>
+    <string name="are_you_sure">Are You Sure ?</string>
+    <string name="yes">Yes</string>
+    <string name="submission_successful">Submission Successful</string>
+    <string name="submission_not_successful">Submission Unsuccessful</string>
 </resources>
