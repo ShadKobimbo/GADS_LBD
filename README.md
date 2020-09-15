@@ -2,5 +2,5 @@
 GADS Leaderboard
 
 # ScreenShots
-![Alt text](/GADS_LBD/Screenshots/AreYouSure.png?raw=true "Confirmation Before Submission")
+!(https://github.com/ShadKobimbo/GADS_LBD/blob/master/ScreenShots/AreYouSure.png?raw=true "Confirmation Before Submission")
 
