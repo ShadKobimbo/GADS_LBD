@@ -6,12 +6,14 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.example.gads_lbd.models.Submission;
 import com.example.gads_lbd.services.ServiceBuilder;
 import com.example.gads_lbd.services.SubmitService;
 
@@ -20,6 +22,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class SubmissionActivity extends AppCompatActivity {
+
+    private static int SPLASH_TIME_OUT = 1500;
 
     static Context context = null;
     Dialog dialog;
@@ -64,6 +68,8 @@ public class SubmissionActivity extends AppCompatActivity {
 
     public void trySubmit(View view){
 
+        cancel();
+
         String first_name = firstName.getText().toString();
         String last_name = lastName.getText().toString();
         String email_address = emailAddress.getText().toString();
@@ -77,7 +83,18 @@ public class SubmissionActivity extends AppCompatActivity {
             public void onResponse(Call<Void> request, Response<Void> response) {
                 if (response.isSuccessful()) {
                     openSuccessDialog();
+
                     System.out.println(response.message().toString());
+
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            Intent i = new Intent(SubmissionActivity.this, HomeActivity.class);
+                            SubmissionActivity.this.startActivity(i);
+                            SubmissionActivity.this.finish();
+                        }
+                    }, SPLASH_TIME_OUT);
+
                 } else {
                     openFailedDialog();
                 }
