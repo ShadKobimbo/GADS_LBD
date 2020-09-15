@@ -53,7 +53,7 @@ public class SubmissionActivity extends AppCompatActivity {
         });
     }
 
-    public void trySubmit(){
+    public void trySubmit(View view){
 
         Submission newSubmission = new Submission();
         newSubmission.setFirstname(firstName.getText().toString());
@@ -75,8 +75,6 @@ public class SubmissionActivity extends AppCompatActivity {
                 openFailedDialog();
             }
         });
-
-
     }
 
     public void back(View view){
