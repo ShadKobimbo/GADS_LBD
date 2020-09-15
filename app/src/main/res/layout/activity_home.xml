@@ -51,10 +51,10 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center|end"
                     android:layout_weight="40"
-                    android:background="#FFFFFF"
                     android:onClick="submit"
                     android:text="@string/submit"
-                    android:textColor="#0B0B0B" />
+                    android:textColor="#0B0B0B"
+                    android:background="@drawable/submit_home_button"/>
 
 
             </LinearLayout>
