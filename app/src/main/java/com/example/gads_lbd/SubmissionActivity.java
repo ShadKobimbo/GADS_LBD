@@ -6,6 +6,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -48,34 +49,52 @@ public class SubmissionActivity extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openAreYouSureDialog();
+                if( TextUtils.isEmpty(firstName.getText())){
+                    firstName.setError( "Enter First Name" );
+                }
+                if( TextUtils.isEmpty(lastName.getText())){
+                    lastName.setError( "Enter Last Name" );
+                }
+                if( TextUtils.isEmpty(emailAddress.getText())){
+                    emailAddress.setError( "Enter Email Address" );
+                }
+                if( TextUtils.isEmpty(githubLink.getText())){
+                    githubLink.setError( "Enter GitHub Link" );
+                }
+                else {
+                    openAreYouSureDialog();
+                }
             }
         });
     }
 
     public void trySubmit(View view){
 
-        Submission newSubmission = new Submission();
-        newSubmission.setFirstname(firstName.getText().toString());
-        newSubmission.setSecondname(lastName.getText().toString());
-        newSubmission.setEmail(emailAddress.getText().toString());
-        newSubmission.setGithublink(githubLink.getText().toString());
+        String first_name = firstName.getText().toString();
+        String last_name = lastName.getText().toString();
+        String email_address = emailAddress.getText().toString();
+        String github_link = githubLink.getText().toString();
 
         SubmitService submitService = ServiceBuilder.buildService(SubmitService.class);
-        Call<Submission> call = submitService.submitProject(newSubmission);
+        Call<Void> call = submitService.submitProject(first_name, last_name, email_address, github_link);
 
-        call.enqueue(new Callback<Submission>() {
+        call.enqueue(new Callback<Void>() {
             @Override
-            public void onResponse(Call<Submission> request, Response<Submission> response) {
-                openSuccessDialog();
+            public void onResponse(Call<Void> request, Response<Void> response) {
+                if (response.isSuccessful())
+                    openSuccessDialog();
+                else
+                    openFailedDialog();
             }
 
             @Override
-            public void onFailure(Call<Submission> request, Throwable t) {
+            public void onFailure(Call<Void> request, Throwable t) {
                 openFailedDialog();
             }
         });
     }
+    
+    
 
     public void back(View view){
         Intent intent = new Intent(this, HomeActivity.class);
