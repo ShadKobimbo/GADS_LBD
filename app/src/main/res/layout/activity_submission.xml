@@ -31,14 +31,16 @@
                     android:layout_weight="30"
                     android:src="@drawable/ic_baseline_arrow_back_24"
                     android:tint="#FFFFFF"
-                    android:onClick="back"/>
+                    android:onClick="back"
+                    android:contentDescription="@string/go_back" />
 
                 <ImageView
                     android:id="@+id/actn_bar_logo"
                     android:layout_width="wrap_content"
                     android:layout_height="?android:attr/actionBarSize"
                     android:layout_weight="70"
-                    android:src="@drawable/action_bar_logo" />
+                    android:src="@drawable/action_bar_logo"
+                    android:contentDescription="@string/action_bar_logo" />
             </LinearLayout>
 
         </androidx.appcompat.widget.Toolbar>
@@ -48,7 +50,7 @@
         android:id="@+id/project_submission"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Project Submission"
+        android:text="@string/project_submission"
         android:layout_margin="6dp"
         android:paddingTop="20dp"
         android:textColor="#ffae45"
@@ -65,7 +67,8 @@
         android:layout_height="2dp"
         android:src="@drawable/divider"
         android:layout_below="@id/project_submission"
-        android:layout_marginBottom="60dp"/>
+        android:layout_marginBottom="60dp"
+        android:contentDescription="@string/divider" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -95,9 +98,10 @@
                     android:background="@drawable/edittext_style"
                     android:hint="@string/first_name"
                     android:paddingStart="6dp"
-                    android:paddingLeft="6dp"
+                    android:paddingEnd="6dp"
                     android:textColor="#717171"
-                    android:textColorHint="#717171" />
+                    android:textColorHint="#717171"
+                    android:inputType="text"/>
 
                 <EditText
                     android:id="@+id/last_name"
@@ -108,9 +112,10 @@
                     android:background="@drawable/edittext_style"
                     android:hint="@string/last_name"
                     android:paddingStart="6dp"
-                    android:paddingLeft="6dp"
+                    android:paddingEnd="6dp"
                     android:textColor="#717171"
-                    android:textColorHint="#717171" />
+                    android:textColorHint="#717171"
+                    android:inputType="text"/>
 
             </LinearLayout>
 
@@ -124,9 +129,10 @@
                 android:background="@drawable/edittext_style"
                 android:hint="@string/email_address"
                 android:paddingStart="6dp"
-                android:paddingLeft="6dp"
+                android:paddingEnd="6dp"
                 android:textColor="#717171"
-                android:textColorHint="#717171" />
+                android:textColorHint="#717171"
+                android:inputType="textEmailAddress" />
 
             <EditText
                 android:id="@+id/github_link"
@@ -138,8 +144,10 @@
                 android:background="@drawable/edittext_style"
                 android:hint="@string/project_on_github_link"
                 android:paddingStart="6dp"
+                android:paddingEnd="6dp"
                 android:textColor="#717171"
-                android:textColorHint="#717171" />
+                android:textColorHint="#717171"
+                android:inputType="text"/>
 
             <Button
                 android:id="@+id/submit_project"

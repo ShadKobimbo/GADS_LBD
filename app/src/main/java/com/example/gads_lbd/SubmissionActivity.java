@@ -10,18 +10,14 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.ImageView;
 
-import com.example.gads_lbd.models.Submission;
 import com.example.gads_lbd.services.ServiceBuilder;
 import com.example.gads_lbd.services.SubmitService;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class SubmissionActivity extends AppCompatActivity {
 
@@ -30,8 +26,6 @@ public class SubmissionActivity extends AppCompatActivity {
     Button submit;
 
     EditText firstName,lastName,emailAddress,githubLink;
-
-    private static final String BASE_URL = "https://docs.google.com/forms/d/e/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,10 +75,12 @@ public class SubmissionActivity extends AppCompatActivity {
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> request, Response<Void> response) {
-                if (response.isSuccessful())
+                if (response.isSuccessful()) {
                     openSuccessDialog();
-                else
+                    System.out.println(response.message().toString());
+                } else {
                     openFailedDialog();
+                }
             }
 
             @Override
@@ -118,7 +114,10 @@ public class SubmissionActivity extends AppCompatActivity {
         dialog.show();
     }
 
-    public void cancel(View view) {
+    public void cancelDialog(View view) {
+        dialog.cancel();
+    }
+    public void cancel() {
         dialog.cancel();
     }
 }

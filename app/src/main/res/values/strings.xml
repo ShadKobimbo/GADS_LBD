@@ -20,4 +20,8 @@
     <string name="yes">Yes</string>
     <string name="submission_successful">Submission Successful</string>
     <string name="submission_not_successful">Submission Unsuccessful</string>
+    <string name="project_submission">Project Submission</string>
+    <string name="go_back">Go Back</string>
+    <string name="action_bar_logo">Action Bar Logo</string>
+    <string name="divider">Divider</string>
 </resources>
